@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg-black text-white">
     <div class="relative w-[375px] h-[812px] mx-auto overflow-hidden">
@@ -31,38 +35,48 @@
         </button>
       </div>
 
-      <!-- Skater Image -->
-      <img
-        src="https://images.unsplash.com/photo-1604537466573-46c58b2d1df4?auto=format&fit=crop&w=375&q=80"
-        alt="Skater"
-        class="w-full h-[600px] object-cover mt-4 rounded-lg"
-      />
-
-      <!-- Overlay Content -->
-      <div class="absolute bottom-24 left-4 flex items-center gap-2">
+      <!-- Skater Image with Overlay Content -->
+      <div class="relative mt-4 rounded-lg overflow-hidden">
         <img
-          src="https://i.pravatar.cc/40"
-          alt="User"
-          class="w-8 h-8 rounded-full border"
+          src="https://media.istockphoto.com/id/154277845/photo/dancer.jpg?s=612x612&w=0&k=20&c=IbWDX9B4RvDEln_F_OBGSMEpDbcon7qhoxr5iGyeNT0="
+          alt="Skater"
+          class="w-full h-[600px] object-cover"
         />
-        <div>
-          <p class="text-sm font-semibold">@dancewithme</p>
-          <p
-            class="text-xs bg-blue-500 text-white px-2 py-1 rounded-full w-fit mt-1"
-          >
-            Upcoming Shows
-          </p>
-        </div>
-      </div>
 
-      <!-- Right Buttons -->
-      <div class="absolute right-4 bottom-24 flex flex-col gap-3 items-center">
-        <button class="bg-white text-black p-2 rounded-full shadow-md">
-          <span class="material-icons">chat_bubble</span>
-        </button>
-        <button class="bg-white text-black p-2 rounded-full shadow-md">
-          <span class="material-icons">add</span>
-        </button>
+        <!-- Overlay Content on Bottom of Image -->
+        <div class="absolute bottom-4 left-4 flex items-center gap-2">
+          <img
+            src="https://i.pravatar.cc/40"
+            alt="User"
+            class="w-8 h-8 rounded-full border"
+          />
+          <div>
+            <p class="text-sm font-semibold text-white">@dancewithme</p>
+            <p
+              class="text-xs bg-blue-500 text-white px-2 py-1 rounded-full w-fit mt-1"
+            >
+              Upcoming Shows
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Buttons Inside Image -->
+        <div
+          class="absolute top-1/2 right-0 transform -translate-y-1/2 flex flex-col gap-3 items-end"
+        >
+          <button
+            class="bg-black/50 p-2 rounded-l-full pl-2 pr-2 flex justify-center items-center"
+          >
+            <!-- white outlined chat icon -->
+            <i class="far fa-comment text-white text-lg"></i>
+          </button>
+          <button
+            class="bg-black/50 p-2 rounded-l-full pl-2 pr-2 flex justify-center items-center"
+          >
+            <!-- white solid + icon -->
+            <i class="fa-solid fa-plus text-white text-lg"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Bottom Navigation -->
@@ -80,9 +94,7 @@
           >
         </a>
         <a href="user.html">
-          <span class="material-icons text-white hover:text-blue-400 transition"
-            >person</span
-          >
+          <i class="fa-regular fa-circle-user text-white text-2xl"></i>
         </a>
       </div>
     </div>
