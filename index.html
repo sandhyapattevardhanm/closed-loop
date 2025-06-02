@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Feed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-black text-white">
+    <div class="relative w-[375px] h-[812px] mx-auto overflow-hidden">
+      <!-- Top Filters -->
+      <div class="flex justify-between items-center px-4 pt-4">
+        <div class="flex gap-2 w-full">
+          <button
+            class="flex-1 bg-white text-black rounded-xl px-4 py-2 text-xs font-semibold flex items-center gap-2"
+          >
+            <span class="material-icons text-base">location_on</span> LOCATION
+          </button>
+          <button
+            class="flex-1 bg-white text-black rounded-xl px-4 py-2 text-xs font-semibold"
+          >
+            CATEGORY
+          </button>
+        </div>
+        <button class="ml-2 text-white">
+          <span class="material-icons">schedule</span>
+        </button>
+      </div>
+
+      <!-- Skater Image -->
+      <img
+        src="https://images.unsplash.com/photo-1604537466573-46c58b2d1df4?auto=format&fit=crop&w=375&q=80"
+        alt="Skater"
+        class="w-full h-[600px] object-cover mt-4 rounded-lg"
+      />
+
+      <!-- Overlay Content -->
+      <div class="absolute bottom-24 left-4 flex items-center gap-2">
+        <img
+          src="https://i.pravatar.cc/40"
+          alt="User"
+          class="w-8 h-8 rounded-full border"
+        />
+        <div>
+          <p class="text-sm font-semibold">@dancewithme</p>
+          <p
+            class="text-xs bg-blue-500 text-white px-2 py-1 rounded-full w-fit mt-1"
+          >
+            Upcoming Shows
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Buttons -->
+      <div class="absolute right-4 bottom-24 flex flex-col gap-3 items-center">
+        <button class="bg-white text-black p-2 rounded-full shadow-md">
+          <span class="material-icons">chat_bubble</span>
+        </button>
+        <button class="bg-white text-black p-2 rounded-full shadow-md">
+          <span class="material-icons">add</span>
+        </button>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div
+        class="absolute bottom-0 w-full bg-black flex justify-around py-2 border-t border-gray-700"
+      >
+        <a href="index.html">
+          <span class="material-icons text-white hover:text-blue-400 transition"
+            >movie</span
+          >
+        </a>
+        <a href="home.html">
+          <span class="material-icons text-white hover:text-blue-400 transition"
+            >home</span
+          >
+        </a>
+        <a href="user.html">
+          <span class="material-icons text-white hover:text-blue-400 transition"
+            >person</span
+          >
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
