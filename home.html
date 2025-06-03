@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&family=Bungee&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-family: 'Bungee', cursive;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            width: 70%;
+            max-width: 500px;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel {
+            display: flex;
+            width: 400%;
+            height: 350px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            width: 25%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .slide-1 {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+        }
+
+        .slide-2 {
+            background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+        }
+
+        .slide-3 {
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+        }
+
+        .slide-4 {
+            background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+        }
+
+        .carousel-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .carousel h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .carousel-btn {
+            padding: 12px 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background-color: white;
+            color: #333;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: white;
+        }
+
+        /* Trending Events */
+        .trending-events {
+            background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .trending-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: #ffcc00;
+        }
+
+        .trending-tag {
+            background-color: #ff4757;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .trending-card {
+            background-color: #2b2b2b;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .trending-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .trending-img {
+            height: 150px;
+            background-color: #3d3d3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 2rem;
+        }
+
+        .trending-content {
+            padding: 15px;
+        }
+
+        .trending-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .trending-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .trending-stats {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+
+        /* Categories Section */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .category-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #00ffcc;
+            display: flex;
+            align-items: center;
+        }
+
+        .category-card h3 i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        .category-list {
+            list-style-type: none;
+        }
+
+        .category-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .category-list li:hover {
+            color: #ff6b6b;
+        }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+        .category-list li i {
+            margin-right: 10px;
+            color: #ffa502;
+            font-size: 1.1rem;
+        }
+
+        /* Top Shows Section */
+        .top-shows {
+            background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .shows-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .shows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .show-card {
+            background-color: #3d3d3d;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .show-card:hover {
+            transform: scale(1.05);
+        }
+
+        .show-img {
+            height: 120px;
+            background-color: #4d4d4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.5rem;
+        }
+
+        .show-title {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Chatbot Section */
+        .chatbot {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .chatbot:hover {
+            transform: translateY(-5px);
+        }
+
+        .chatbot i {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .chatbot h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .chatbot p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+
+        .chatbot-btn {
+            padding: 12px 30px;
+            background-color: white;
+            color: #6e48aa;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-btn:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .carousel {
+                height: 300px;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .carousel {
+                height: 250px;
+            }
+            
+            .carousel h2 {
+                font-size: 1.6rem;
+            }
+            
+            .trending-grid, .shows-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .search-bar input {
+                width: 90%;
+                padding: 12px 20px;
+            }
+            
+            .carousel {
+                height: 200px;
+            }
+            
+            .carousel h2 {
+                font-size: 1.3rem;
+            }
+            
+            .carousel p {
+                font-size: 0.9rem;
+            }
+            
+            .categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .trending-header, .shows-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EVENT EXPLORER</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for events near you...">
+            </div>
+        </header>
+
+        <!-- Animated Carousel -->
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-slide slide-1">
+                    <i class="fas fa-film carousel-icon"></i>
+                    <h2>Movie Premieres</h2>
+                    <p>Discover the hottest new releases and classic favorites in theaters near you</p>
+                    <button class="carousel-btn">Explore Movies</button>
+                </div>
+                <div class="carousel-slide slide-2">
+                    <i class="fas fa-music carousel-icon"></i>
+                    <h2>Live Concerts</h2>
+                    <p>Experience unforgettable performances from your favorite artists</p>
+                    <button class="carousel-btn">Find Concerts</button>
+                </div>
+                <div class="carousel-slide slide-3">
+                    <i class="fas fa-theater-masks carousel-icon"></i>
+                    <h2>Comedy Shows</h2>
+                    <p>Laugh out loud with top comedians and improv troupes</p>
+                    <button class="carousel-btn">Book Tickets</button>
+                </div>
+                <div class="carousel-slide slide-4">
+                    <i class="fas fa-running carousel-icon"></i>
+                    <h2>Sports Events</h2>
+                    <p>Cheer for your teams at thrilling live sporting events</p>
+                    <button class="carousel-btn">View Schedule</button>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                <div class="carousel-dot" onclick="goToSlide(2)"></div>
+                <div class="carousel-dot" onclick="goToSlide(3)"></div>
+            </div>
+        </div>
+
+        <!-- Trending Events -->
+        <div class="trending-events">
+            <div class="trending-header">
+                <h2>Trending Events</h2>
+                <div class="trending-tag">Based on Likes/Dislikes</div>
+            </div>
+            <div class="trending-grid">
+                <div class="trending-card">
+                    <div class="trending-img">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <div class="trending-content">
+                        <h3>Rock Festival 2023</h3>
+                        <p>The biggest rock event of the year featuring top international bands</p>
+                        <div class="trending-stats">
+                            <span><i class="fas fa-thumbs-up"></i> 1.2k</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Downtown</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="trending-content">
+                        <h3>Tech Expo</h3>
+                        <p>Cutting-edge technology showcase with interactive exhibits</p>
+                        <div class="trending-stats">
+                            <span><i class="fas fa-thumbs-up"></i> 890</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Convention Center</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-img">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="trending-content">
+                        <h3>Food Festival</h3>
+                        <p>Taste dishes from 50+ countries in this culinary adventure</p>
+                        <div class="trending-stats">
+                            <span><i class="fas fa-thumbs-up"></i> 2.4k</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Waterfront Park</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-img">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="trending-content">
+                        <h3>Art Exhibition</h3>
+                        <p>Contemporary art from emerging and established artists</p>
+                        <div class="trending-stats">
+                            <span><i class="fas fa-thumbs-up"></i> 650</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Modern Art Museum</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="categories">
+            <div class="category-card">
+                <h3><i class="fas fa-map-marker-alt"></i> LOCATION</h3>
+                <ul class="category-list">
+                    <li><i class="fas fa-film"></i> Movies</li>
+                    <li><i class="fas fa-music"></i> Audio</li>
+                    <li><i class="fas fa-laugh-squint"></i> Comedy</li>
+                    <li><i class="fas fa-calendar-alt"></i> Events Category</li>
+                </ul>
+            </div>
+
+            <div class="category-card">
+                <h3><i class="fas fa-moon"></i> DATA NIGHT</h3>
+                <ul class="category-list">
+                    <li><i class="fas fa-gamepad"></i> Activities</li>
+                    <li><i class="fas fa-basketball-ball"></i> Sports</li>
+                    <li><i class="fas fa-chess"></i> Board Games</li>
+                    <li><i class="fas fa-campground"></i> Outdoor</li>
+                </ul>
+            </div>
+
+            <div class="category-card">
+                <h3><i class="fas fa-tools"></i> WORKSHOP</h3>
+                <ul class="category-list">
+                    <li><i class="fas fa-child"></i> Kids</li>
+                    <li><i class="fas fa-user"></i> For You</li>
+                    <li><i class="fas fa-graduation-cap"></i> Learning</li>
+                    <li><i class="fas fa-briefcase"></i> Professional</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Top Shows Section -->
+        <div class="top-shows">
+            <div class="shows-header">
+                <h2>Top Shows / Trending</h2>
+                <button class="carousel-btn">View All</button>
+            </div>
+            <div class="shows-grid">
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div class="show-title">Magic Show</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="show-title">Stand-up Night</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-drum"></i>
+                    </div>
+                    <div class="show-title">Drum Circle</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <div class="show-title">Escape Room</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="show-title">Film Screening</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot Section -->
+        <div class="chatbot" onclick="openChatbot()">
+            <i class="fas fa-comment-dots"></i>
+            <h3>Need Help?</h3>
+            <p>Our AI assistant can help you find the perfect events</p>
+            <button class="chatbot-btn">Chat Now</button>
+        </div>
+    </div>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = slides.length;
+        
+        function showSlide(index) {
+            if (index >= totalSlides) index = 0;
+            if (index < 0) index = totalSlides - 1;
+            
+            document.querySelector('.carousel').style.transform = `translateX(-${index * 25}%)`;
+            
+            // Update dots
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            
+            currentSlide = index;
+        }
+        
+        function goToSlide(index) {
+            showSlide(index);
+        }
+        
+        // Auto-rotate carousel
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Initialize
+        showSlide(0);
+        
+        function openChatbot() {
+            alert("Chatbot feature would open here in a real implementation!");
+        }
+    </script>
+</body>
+</html>
