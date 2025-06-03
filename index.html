@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Explore Feed</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -15,7 +15,12 @@
     />
   </head>
   <body class="bg-black text-white">
-    <div class="relative w-[375px] h-[812px] mx-auto overflow-hidden">
+    <div
+      class="relative mx-auto overflow-hidden
+        w-full max-w-[1024px] 
+        h-screen
+        sm:h-screen"
+    >
       <!-- Top Filters -->
       <div class="flex justify-between items-center px-4 pt-4">
         <div class="flex gap-2 w-full">
@@ -36,11 +41,11 @@
       </div>
 
       <!-- Skater Image with Overlay Content -->
-      <div class="relative mt-4 rounded-lg overflow-hidden">
+      <div class="relative mt-4 rounded-lg overflow-hidden h-[60vh] sm:h-[80vh]">
         <img
           src="https://media.istockphoto.com/id/154277845/photo/dancer.jpg?s=612x612&w=0&k=20&c=IbWDX9B4RvDEln_F_OBGSMEpDbcon7qhoxr5iGyeNT0="
           alt="Skater"
-          class="w-full h-[600px] object-cover"
+          class="w-full h-full object-cover"
         />
 
         <!-- Overlay Content on Bottom of Image -->
