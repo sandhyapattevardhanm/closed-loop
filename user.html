@@ -14,74 +14,64 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
   </head>
-  <body
-    class="bg-gradient-to-b from-blue-900 to-black text-white h-screen overflow-hidden"
-  >
-    <div
-      class="w-[375px] h-full mx-auto p-4 relative flex flex-col justify-between"
-    >
+  <body class="bg-gradient-to-b from-blue-900 to-black text-white min-h-screen">
+  <div class="w-full max-w-5xl mx-auto p-4 flex flex-col min-h-screen">
       <!-- Top Section -->
       <div>
         <!-- Back Button -->
         <div class="mb-4">
           <button class="text-white">
-            <a href="index.html"
-              ><span
+            <a href="index.html">
+              <span
                 class="material-icons text-blue-400"
-                style="
-                  font-size: 28px;
-                  display: inline-block;
-                  transform: scaleX(1.3);
-                  transform-origin: center;
-                "
+                style="font-size: 28px; display: inline-block; transform: scaleX(1.3); transform-origin: center;"
               >
                 arrow_back
-              </span></a
-            >
+              </span>
+            </a>
           </button>
         </div>
 
         <!-- Profile Info Section with Edit Button Side-by-Side -->
-        <div class="flex justify-between items-center mb-6">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
           <!-- User Info -->
-          <div class="flex flex-col">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:gap-6">
             <img
               src="https://cdn.shopify.com/s/files/1/0086/0795/7054/files/Golden-Retriever.jpg?v=1645179525"
               alt="User"
-              class="w-24 h-24 rounded-full mb-2"
+              class="w-24 h-24 rounded-full mb-2 sm:mb-0"
             />
-            <h2 class="text-lg font-semibold">Keerthana Shetty</h2>
-            <p class="text-sm text-gray-300">@keerthana_s</p>
-            <p class="text-sm text-gray-400 mt-1 flex items-center gap-1">
-              <i class="fa-solid fa-location-dot text-white"></i>Bengaluru,
-              India
-            </p>
-            <p class="text-xs text-gray-400">Shows attended: 15</p>
+            <div>
+              <h2 class="text-lg font-semibold">Keerthana Shetty</h2>
+              <p class="text-sm text-gray-300">@keerthana_s</p>
+              <p class="text-sm text-gray-400 mt-1 flex items-center gap-1">
+                <i class="fa-solid fa-location-dot text-white"></i>Bengaluru, India
+              </p>
+              <p class="text-xs text-gray-400">Shows attended: 15</p>
+            </div>
           </div>
 
           <!-- Edit Button -->
-          <div class="flex justify-center items-center">
-            <button
-              class="px-4 py-1 text-xs border border-blue-400 rounded-full"
-            >
+          <div class="flex justify-center items-center mt-4 sm:mt-0">
+            <button class="px-4 py-1 text-xs border border-blue-400 rounded-full hover:bg-blue-400 hover:text-white transition duration-200">
               Edit profile
             </button>
           </div>
         </div>
 
         <!-- Main Actions -->
-        <div class="flex justify-center gap-x-10 mb-4">
+        <div class="flex flex-wrap justify-center gap-6 mb-6">
           <div class="text-center">
             <div
-              class="bg-gradient-to-r from-purple-500 to-blue-400 w-20 h-20 rounded-xl mb-1 flex items-center justify-center"
+            class="bg-gradient-to-r from-purple-500 to-blue-400 w-20 h-20 rounded-xl mb-1 flex items-center justify-center border border-transparent hover:border-white transition duration-200"
             >
-              <span class="material-icons text-4xl">event</span>
+              <span class="material-icons text-4xl ">event</span>
             </div>
             <p class="text-xs">Bookings</p>
           </div>
           <div class="text-center">
             <div
-              class="bg-gradient-to-r from-purple-500 to-blue-400 w-20 h-20 rounded-xl mb-1 flex items-center justify-center"
+            class="bg-gradient-to-r from-purple-500 to-blue-400 w-20 h-20 rounded-xl mb-1 flex items-center justify-center border border-transparent hover:border-white transition duration-200"
             >
               <span class="material-icons text-4xl">emoji_events</span>
             </div>
@@ -89,7 +79,7 @@
           </div>
           <div class="text-center">
             <div
-              class="bg-gradient-to-r from-purple-500 to-blue-400 w-20 h-20 rounded-xl mb-1 flex items-center justify-center"
+              class="bg-gradient-to-r from-purple-500 to-blue-400 w-20 h-20 rounded-xl mb-1 flex items-center justify-center border border-transparent hover:border-white transition duration-200"
             >
               <span class="material-icons text-4xl">support_agent</span>
             </div>
@@ -99,7 +89,7 @@
 
         <!-- Chat Button -->
         <button
-          class="w-full bg-gradient-to-r to-blue-400 from-purple-500 text-white rounded-2xl py-3 text-sm font-semibold mb-4"
+          class="w-full bg-gradient-to-r from-purple-500 to-blue-400 border border-transparent hover:border-white rounded-2xl py-3 text-sm font-semibold mb-4 transition duration-200"
         >
           Chat / Split wise
         </button>
@@ -107,22 +97,22 @@
         <!-- Settings -->
         <div class="space-y-2">
           <button
-            class="w-full border border-blue-400 text-center rounded-xl px-4 py-2 text-left text-sm"
+            class="w-full border border-blue-400 text-center rounded-xl px-4 py-2 text-left text-sm hover:bg-blue-900 hover:border-white transition duration-200"
           >
             Payment Settings
           </button>
           <button
-            class="w-full border border-blue-400 text-center rounded-xl px-4 py-2 text-left text-sm"
+            class="w-full border border-blue-400 text-center rounded-xl px-4 py-2 text-left text-sm hover:bg-blue-900 hover:border-white transition duration-200"
           >
             Account Settings
           </button>
           <button
-            class="w-full border border-blue-400 text-center rounded-xl px-4 py-2 text-left text-sm"
+            class="w-full border border-blue-400 text-center rounded-xl px-4 py-2 text-left text-sm hover:bg-blue-900 hover:border-white transition duration-200"
           >
             Notifications
           </button>
           <button
-            class="w-full border border-blue-400 text-center rounded-xl px-4 py-2 text-left text-sm"
+            class="w-full border border-blue-400 text-center rounded-xl px-4 py-2 text-left text-sm hover:bg-blue-900 hover:border-white transition duration-200"
           >
             About Us
           </button>
@@ -130,7 +120,8 @@
       </div>
 
       <!-- Bottom Icons -->
-      <div class="w-full flex justify-between px-4 items-center">
+      <!-- Bottom Icons -->
+      <div class="w-full flex justify-between px-4 items-center mt-auto mb-4">
         <!-- Left Icon (Logout) -->
         <span class="material-icons text-gray-400 text-3xl">logout</span>
 
