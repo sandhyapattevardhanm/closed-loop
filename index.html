@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&family=Bungee&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&family=Bungee&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #121212;
+            background: linear-gradient(to bottom, #1e3a8a, #000000);
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-family: 'Bungee', cursive;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            width: 70%;
+            max-width: 500px;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            backdrop-filter: blur(5px);
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel {
+            display: flex;
+            width: 400%;
+            min-height: 350px;
+            /* Changed from fixed height to min-height */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            width: 25%;
+            min-height: 350px;
+            /* Ensure minimum height */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 2rem;
+            /* Using relative units */
+            text-align: center;
+            box-sizing: border-box;
+            /* Ensure padding is included in height */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+
+            .carousel,
+            .carousel-slide {
+                min-height: 300px;
+            }
+
+            .carousel-slide {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .carousel,
+            .carousel-slide {
+                min-height: 350px;
+                /* Taller on mobile to prevent cropping */
+            }
+
+            .carousel-slide {
+                padding: 1.5rem 1rem;
+                /* Less horizontal padding */
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .carousel,
+            .carousel-slide {
+                min-height: 400px;
+                /* Even taller on very small screens */
+            }
+
+            .carousel-slide {
+                padding: 1.5rem 0.8rem;
+            }
+        }
+
+        .slide-1 {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+        }
+
+        .slide-2 {
+            background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+        }
+
+        .slide-3 {
+            background: linear-gradient(135deg, #4b034b 0%, #8c1056 100%);
+        }
+
+        .slide-4 {
+            background: linear-gradient(135deg, #eedb31 0%, #edd474 100%);
+        }
+
+        .carousel-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .carousel h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .carousel-btn {
+            padding: 12px 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background-color: white;
+            color: #333;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: white;
+        }
+
+
+
+        /* Top Shows Section */
+        .top-shows {
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .shows-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .shows-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* Fixed 3 columns */
+            grid-template-rows: repeat(3, auto);
+            /* 3 rows */
+            gap: 20px;
+        }
+
+        .show-card {
+            background: linear-gradient(to right, #8b5cf6, #3b82f6);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .show-card:hover {
+            transform: scale(1.05);
+        }
+
+        .show-img {
+            height: 120px;
+            background-color: #4d4d4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.5rem;
+        }
+
+        .show-title {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .carousel {
+                height: 300px;
+            }
+
+            h1 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .carousel {
+                height: 250px;
+            }
+
+            .carousel h2 {
+                font-size: 1.6rem;
+            }
+
+            .trending-grid,
+            .shows-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .search-bar input {
+                width: 90%;
+                padding: 12px 20px;
+            }
+
+            .carousel {
+                height: 200px;
+            }
+
+            .carousel h2 {
+                font-size: 1.3rem;
+            }
+
+            .carousel p {
+                font-size: 0.9rem;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .trending-header,
+            .shows-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        /* Trending Events */
+        .trending-events {
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .trending-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: #ffcc00;
+        }
+
+        .trending-tag {
+            background-color: #ff4757;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .trending-card {
+            background: linear-gradient(to right, #8b5cf6, #3b82f6);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .trending-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .trending-img {
+            height: 150px;
+            background-color: #3d3d3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 2rem;
+        }
+
+        .trending-content {
+            padding: 15px;
+        }
+
+        .trending-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .trending-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .trending-stats {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <i class="fas fa-image"></i> <!-- You can replace this with an <img> tag for a custom logo -->
+                </div>
+
+                <!-- Location -->
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Bangalore, India</span>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for events near you...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <!-- User Profile -->
+                <div class="user-profile">
+                    <a href="user.html"><i class="fas fa-user-circle"></i></a>
+                </div>
+            </div>
+        </header>
+
+        <style>
+            header {
+                background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+                padding: 15px 30px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            .header-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .logo i {
+                font-size: 2rem;
+                color: white;
+            }
+
+            .location {
+                display: flex;
+                align-items: center;
+                color: white;
+                margin-right: auto;
+                margin-left: 20px;
+            }
+
+            .location i {
+                margin-right: 8px;
+                font-size: 1.1rem;
+            }
+
+            .search-bar {
+                display: flex;
+                flex-grow: 1;
+                max-width: 500px;
+                margin: 0 20px;
+            }
+
+            .search-bar input {
+                width: 100%;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 30px 0 0 30px;
+                font-size: 1rem;
+                outline: none;
+                background-color: rgba(255, 255, 255, 0.2);
+                color: white;
+            }
+
+            .search-bar input::placeholder {
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            .search-btn {
+                background-color: rgba(255, 255, 255, 0.2);
+                color: white;
+                border: none;
+                border-radius: 0 30px 30px 0;
+                padding: 0 15px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .search-btn:hover {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+
+            .user-profile i {
+                font-size: 2rem;
+                color: white;
+                cursor: pointer;
+            }
+
+            @media (max-width: 768px) {
+                .header-container {
+                    flex-wrap: wrap;
+                }
+
+                .logo {
+                    order: 1;
+                }
+
+                .location {
+                    order: 3;
+                    width: 100%;
+                    margin: 10px 0 0 0;
+                    justify-content: center;
+                }
+
+                .search-bar {
+                    order: 2;
+                    flex-grow: 1;
+                    margin: 0 10px;
+                }
+
+                .user-profile {
+                    order: 4;
+                }
+            }
+        </style>
+
+
+
+
+
+        <!-- Top Shows Section -->
+        <div class="top-shows">
+            <div class="shows-grid">
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-clapperboard"></i>
+                    </div>
+                    <div class="show-title">Movies</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="show-title">Music</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-masks-theater"></i>
+                    </div>
+                    <div class="show-title">Comedy</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="show-title">Date Night</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <div class="show-title">Activities</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-baseball"></i>
+                    </div>
+                    <div class="show-title">Sports</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fa-solid fa-tools"></i>
+                    </div>
+                    <div class="show-title">Workshop</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="show-title">Kids</div>
+                </div>
+                <div class="show-card">
+                    <div class="show-img">
+                        <i class="fas fa-icons"></i>
+                    </div>
+                    <div class="show-title">For You</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Animated Carousel -->
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-slide slide-1">
+                    <i class="fas fa-film carousel-icon"></i>
+                    <h2>Movie Premieres</h2>
+                    <p>Discover the hottest new releases and classic favorites in theaters near you</p>
+                    <button class="carousel-btn">Explore Movies</button>
+                </div>
+                <div class="carousel-slide slide-2">
+                    <i class="fas fa-music carousel-icon"></i>
+                    <h2>Live Concerts</h2>
+                    <p>Experience unforgettable performances from your favorite artists</p>
+                    <button class="carousel-btn">Find Concerts</button>
+                </div>
+                <div class="carousel-slide slide-3">
+                    <i class="fas fa-theater-masks carousel-icon"></i>
+                    <h2>Comedy Shows</h2>
+                    <p>Laugh out loud with top comedians and improv troupes</p>
+                    <button class="carousel-btn">Book Tickets</button>
+                </div>
+                <div class="carousel-slide slide-4">
+                    <i class="fas fa-running carousel-icon"></i>
+                    <h2>Sports Events</h2>
+                    <p>Cheer for your teams at thrilling live sporting events</p>
+                    <button class="carousel-btn">View Schedule</button>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                <div class="carousel-dot" onclick="goToSlide(2)"></div>
+                <div class="carousel-dot" onclick="goToSlide(3)"></div>
+            </div>
+        </div>
+
+
+        <!-- Trending Events -->
+        <div class="trending-events">
+            <div class="trending-header">
+                <h2>Trending Events</h2>
+            </div>
+            <div class="trending-grid">
+                <div class="trending-card">
+                    <div class="trending-img">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <div class="trending-content">
+                        <h3>Rock Festival 2023</h3>
+                        <div class="trending-stats">
+                            <span><i class="fas fa-map-marker-alt"></i> Downtown</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="trending-content">
+                        <h3>Tech Expo</h3>
+                        <div class="trending-stats">
+                            <span><i class="fas fa-map-marker-alt"></i> Convention Center</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-img">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="trending-content">
+                        <h3>Food Festival</h3>
+                        <div class="trending-stats">
+                            <span><i class="fas fa-map-marker-alt"></i> Waterfront Park</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-img">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="trending-content">
+                        <h3>Art Exhibition</h3>
+                        <div class="trending-stats">
+                            <span><i class="fas fa-map-marker-alt"></i> Modern Art Museum</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            /* Categories Section */
+            .categories {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 25px;
+                margin-bottom: 40px;
+            }
+
+            .category-card {
+                background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
+                border-radius: 12px;
+                padding: 25px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                transition: transform 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .category-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            }
+
+            .category-card h3 {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                color: #00ffcc;
+                display: flex;
+                align-items: center;
+            }
+
+            .category-card h3 i {
+                margin-right: 10px;
+                font-size: 1.8rem;
+            }
+
+            .category-list {
+                list-style-type: none;
+            }
+
+            .category-list li {
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                display: flex;
+                align-items: center;
+                transition: color 0.3s ease;
+            }
+
+            .category-list li:hover {
+                color: #ff6b6b;
+            }
+
+            .category-list li:last-child {
+                border-bottom: none;
+            }
+
+            .category-list li i {
+                margin-right: 10px;
+                color: #ffa502;
+                font-size: 1.1rem;
+            }
+
+            .icon-with-text {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 15px;
+            }
+
+            .round-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+                /* Ensures image stays within circle */
+                background-color: #f0f0f0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .round-icon img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                /* Maintains aspect ratio */
+            }
+
+            .icon-text {
+                font-size: 16px;
+                color: #fff6f6;
+            }
+        </style>
+
+        <!-- Categories Section -->
+        <div class="categories">
+            <div class="category-card">
+                <h3><i class="fas fa-clapperboard"></i> MOVIES</h3>
+                <ul class="category-list">
+                    <div class="icon-with-text">
+                        <!-- Round image/icon -->
+                        <div class="round-icon">
+                            <img src="https://via.placeholder.com/50" alt="Profile Icon">
+                        </div>
+
+                        <!-- Text next to icon -->
+                        <span class="icon-text">Rohit Saraf</span>
+                    </div>
+
+                    <div class="icon-with-text">
+                        <!-- Round image/icon -->
+                        <div class="round-icon">
+                            <img src="https://via.placeholder.com/50" alt="Profile Icon">
+                        </div>
+
+                        <!-- Text next to icon -->
+                        <span class="icon-text">Prajakta Kohli</span>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="category-card">
+                <h3><i class="fas fa-music"></i> MUSIC</h3>
+                <ul class="category-list">
+                    <div class="icon-with-text">
+                        <!-- Round image/icon -->
+                        <div class="round-icon">
+                            <img src="https://via.placeholder.com/50" alt="Profile Icon">
+                        </div>
+
+                        <!-- Text next to icon -->
+                        <span class="icon-text">Armaan Malik</span>
+                    </div>
+
+                    <div class="icon-with-text">
+                        <!-- Round image/icon -->
+                        <div class="round-icon">
+                            <img src="https://via.placeholder.com/50" alt="Profile Icon">
+                        </div>
+
+                        <!-- Text next to icon -->
+                        <span class="icon-text">Taaruk Raina</span>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="category-card">
+                <h3><i class="fas fa-masks-theater"></i> COMEDY</h3>
+                <ul class="category-list">
+                    <div class="icon-with-text">
+                        <!-- Round image/icon -->
+                        <div class="round-icon">
+                            <img src="https://via.placeholder.com/50" alt="Profile Icon">
+                        </div>
+
+                        <!-- Text next to icon -->
+                        <span class="icon-text">Nirmal Pillai</span>
+                    </div>
+
+                    <div class="icon-with-text">
+                        <!-- Round image/icon -->
+                        <div class="round-icon">
+                            <img src="https://via.placeholder.com/50" alt="Profile Icon">
+                        </div>
+
+                        <!-- Text next to icon -->
+                        <span class="icon-text">Shraddha Jain</span>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+
+        <style>
+            /* Top Shows Section */
+            .top-show-section {
+                border-radius: 12px;
+                padding: 30px;
+                margin-bottom: 40px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .top-shows-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 25px;
+            }
+
+            .top-shows-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .top-show-card {
+                background: linear-gradient(to right, #8b5cf6, #3b82f6);
+                border-radius: 8px;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+            }
+
+            .top-show-card:hover {
+                transform: scale(1.05);
+            }
+
+            .top-show-img {
+                height: 300px;
+                width: 100%;
+                background-color: #4d4d4d;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .top-show-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                transition: transform 0.3s ease;
+            }
+
+            .top-show-card:hover .top-show-img img {
+                transform: scale(1.1);
+            }
+
+            .show-title {
+                padding: 15px;
+                text-align: center;
+                font-weight: 600;
+                color: white;
+            }
+
+            .subcategory {
+                margin-top: 30px;
+            }
+
+            .subcategory h3 {
+                color: #00ffcc;
+                margin-bottom: 15px;
+                font-size: 1.3rem;
+            }
+
+            .carousel-btn {
+                padding: 8px 20px;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .carousel-btn:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+        </style>
+
+        <!-- Top Shows Section -->
+        <div class="top-show-section">
+            <div class="top-shows-header">
+                <h2>Top Shows / Trending</h2>
+                <button class="carousel-btn">View All</button>
+            </div>
+
+            <div class="top-shows-grid">
+                <div class="top-show-card">
+                    <div class="top-show-img">
+                        <img src="image/Charity Dinner & Magic Night Event Ad Flyer.jpg" alt="Magic Show">
+                    </div>
+                    <div class="show-title">Magic Show</div>
+                </div>
+
+                <div class="top-show-card">
+                    <div class="top-show-img">
+                        <img src="image/Theatre night poster.jpg" alt="Stand-up Night">
+                    </div>
+                    <div class="show-title">Stand-up Night</div>
+                </div>
+
+                <div class="top-show-card">
+                    <div class="top-show-img">
+                        <img src="image/Music Silhouette Rock Poster Background Wallpaper Image For Free Download - Pngtree.jpg"
+                            alt="Drum Circle">
+                    </div>
+                    <div class="show-title">Drum Circle</div>
+                </div>
+                <div class="top-show-card">
+                    <div class="top-show-img">
+                        <img src="image/Black 3d Escape Room Poster.jpg" alt="Stand-up Night">
+                    </div>
+                    <div class="show-title">Escape Room</div>
+                </div>
+
+                <div class="top-show-card">
+                    <div class="top-show-img">
+                        <img src="image/Cinema festival retro poster vintage camcorder vector image on VectorStock.jpg"
+                            alt="Drum Circle">
+                    </div>
+                    <div class="show-title">Film Screening</div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Floating Chatbot Icon -->
+            <div class="chatbot-icon" onclick="openChatbot()">
+                <i class="fas fa-robot"></i>
+            </div>
+
+            <style>
+                .chatbot-icon {
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    width: 60px;
+                    height: 60px;
+                    background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 1.8rem;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                    cursor: pointer;
+                    z-index: 1000;
+                    transition: all 0.3s ease;
+                }
+
+                .chatbot-icon:hover {
+                    transform: scale(1.1);
+                    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+                }
+
+                .chatbot-icon i {
+                    animation: pulse 2s infinite;
+                }
+
+                @keyframes pulse {
+                    0% {
+                        transform: scale(1);
+                    }
+
+                    50% {
+                        transform: scale(1.1);
+                    }
+
+                    100% {
+                        transform: scale(1);
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .chatbot-icon {
+                        width: 50px;
+                        height: 50px;
+                        font-size: 1.5rem;
+                        bottom: 20px;
+                        right: 20px;
+                    }
+                }
+            </style>
+
+            <script>
+                function openChatbot() {
+                    // Your chatbot opening functionality here
+                    alert("Chatbot would open here in a real implementation!");
+                }
+            </script>
+
+            <script>
+                // Carousel functionality
+                let currentSlide = 0;
+                const slides = document.querySelectorAll('.carousel-slide');
+                const dots = document.querySelectorAll('.carousel-dot');
+                const totalSlides = slides.length;
+
+                function showSlide(index) {
+                    if (index >= totalSlides) index = 0;
+                    if (index < 0) index = totalSlides - 1;
+
+                    document.querySelector('.carousel').style.transform = `translateX(-${index * 25}%)`;
+
+                    // Update dots
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+
+                    currentSlide = index;
+                }
+
+                function goToSlide(index) {
+                    showSlide(index);
+                }
+
+                // Auto-rotate carousel
+                setInterval(() => {
+                    showSlide(currentSlide + 1);
+                }, 5000);
+
+                // Initialize
+                showSlide(0);
+
+                function openChatbot() {
+                    alert("Chatbot feature would open here in a real implementation!");
+                }
+            </script>
+</body>
+
+</html>
