@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventVerse</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to bottom, #1e3a8a, #000000);
+      font-family: "Poppins", sans-serif;
+      color: white;
+    }
+
+    .chatbot-icon {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .chatbot-icon i {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .chatbot-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-purple-700 to-pink-500 shadow-lg p-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="logo text-white text-2xl"><i class="fas fa-image"></i> ClosedLoop</div>
+
+      <div class="location flex items-center text-white text-sm">
+        <i class="fas fa-map-marker-alt mr-2"></i>Bangalore, India
+      </div>
+
+      <div class="search-bar flex flex-grow max-w-lg">
+        <input type="text" placeholder="Search for events near you..."
+          class="w-full px-4 py-2 rounded-l-full bg-white/20 text-white placeholder-white/70 outline-none" />
+        <button class="search-btn px-4 rounded-r-full bg-white/20 text-white hover:bg-white/30">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <div class="user-profile text-white text-2xl">
+        <a href="home.html">
+          <span class="material-icons text-white transition">movie</span>
+        </a>
+      </div>
+
+      <div class="user-profile text-white text-2xl">
+        <a href="user.html"><i class="fas fa-user-circle"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-16 px-4">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Your Gateway to Live Experiences</h2>
+    <p class="text-lg md:text-xl mb-8">Book shows, discover new artists, and vibe with your crew – all in one place.</p>
+    <a href="home.html"
+      class="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition">
+      Explore Shows
+    </a>
+  </section>
+
+
+  <!-- Top Shows Section -->
+  <section class="top-show-section mx-4 md:mx-16 bg-white/10 rounded-2xl p-6 md:p-10 shadow-xl border border-white/20">
+    <div class="top-shows-header flex items-center justify-between mb-8">
+      <h2 class="text-3xl font-bold text-yellow-400">Top Shows / Trending</h2>
+      <a href="home.html"><button
+          class="carousel-btn bg-white/10 px-5 py-2 rounded-full text-white border border-white/30 hover:bg-white/20 transition">
+          View All
+        </button></a>
+    </div>
+
+    <div class="top-shows-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <!-- Card 1 -->
+      <div class="top-show-card overflow-hidden rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 shadow-lg">
+        <div class="top-show-img">
+          <img src="image/Charity Dinner & Magic Night Event Ad Flyer.jpg" alt="Magic Show"
+            class="w-full h-72 object-cover transition-transform duration-300 hover:scale-105" />
+        </div>
+        <div class="show-title text-center py-3 font-semibold">Magic Show</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="top-show-card overflow-hidden rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 shadow-lg">
+        <div class="top-show-img">
+          <img src="image/Theatre night poster.jpg" alt="Stand-up Night"
+            class="w-full h-72 object-cover transition-transform duration-300 hover:scale-105" />
+        </div>
+        <div class="show-title text-center py-3 font-semibold">Stand-up Night</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="top-show-card overflow-hidden rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 shadow-lg">
+        <div class="top-show-img">
+          <img src="image/Music Silhouette Rock Poster Background Wallpaper Image For Free Download - Pngtree.jpg"
+            alt="Drum Circle" class="w-full h-72 object-cover transition-transform duration-300 hover:scale-105" />
+        </div>
+        <div class="show-title text-center py-3 font-semibold">Drum Circle</div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="top-show-card overflow-hidden rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 shadow-lg">
+        <div class="top-show-img">
+          <img src="image/Black 3d Escape Room Poster.jpg" alt="Escape Room"
+            class="w-full h-72 object-cover transition-transform duration-300 hover:scale-105" />
+        </div>
+        <div class="show-title text-center py-3 font-semibold">Escape Room</div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="top-show-card overflow-hidden rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 shadow-lg">
+        <div class="top-show-img">
+          <img src="image/Cinema festival retro poster vintage camcorder vector image on VectorStock.jpg"
+            alt="Film Screening" class="w-full h-72 object-cover transition-transform duration-300 hover:scale-105" />
+        </div>
+        <div class="show-title text-center py-3 font-semibold">Film Screening</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Section -->
+  <section
+    class="top-show-section mx-4 md:mx-16 bg-white/10 rounded-2xl p-6 md:p-10 shadow-xl border border-white/20  mt-16">
+    <div class="top-shows-header flex items-center justify-between mb-8">
+      <h2 class="text-3xl font-bold text-yellow-400">About the company</h2>
+    </div>
+    <div>
+      <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi omnis est eaque earum amet, asperiores quidem
+        repudiandae nulla, tenetur ipsum, rem velit consectetur? Quaerat voluptate inventore, officia dolorum quam
+        maxime? Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque consequuntur quia, molestias nostrum
+        veniam nobis sit corporis aspernatur expedita blanditiis unde vitae? Rerum omnis, quos sit dicta vero nihil
+        consequuntur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis provident ipsum placeat
+        obcaecati molestias corrupti voluptatum eveniet, omnis porro earum nemo, cupiditate eum, numquam perferendis
+        distinctio voluptas at sunt laudantium!</h4>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-purple-700 to-pink-500 text-center text-white py-4 mt-16 shadow-inner">
+    © 2025 ClosedLoop ·
+  </footer>
+
+  <!-- Floating Chatbot Icon -->
+  <div class="chatbot-icon" onclick="openChatbot()">
+    <i class="fas fa-robot"></i>
+  </div>
+
+  <script>
+    function openChatbot() {
+      alert("Chatbot would open here in a real implementation!");
+    }
+  </script>
+</body>
+
+</html>

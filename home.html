@@ -243,8 +243,10 @@
 
         .shows-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns */
-            grid-template-rows: repeat(3, auto); /* 3 rows */
+            grid-template-columns: repeat(3, 1fr);
+            /* Fixed 3 columns */
+            grid-template-rows: repeat(3, auto);
+            /* 3 rows */
             gap: 20px;
         }
 
@@ -435,9 +437,12 @@
         <header>
             <div class="header-container">
                 <!-- Logo -->
-                <div class="logo">
-                    <i class="fas fa-image"></i> <!-- You can replace this with an <img> tag for a custom logo -->
-                </div>
+                <a href="index.html">
+                    <div class="logo">
+                        <i class="fas fa-image"></i>
+                        <!-- You can replace this with an <img> tag for a custom logo -->
+                    </div>
+                </a>
 
                 <!-- Location -->
                 <div class="location">
@@ -837,7 +842,7 @@
             }
 
             .top-show-card {
-            background: linear-gradient(to right, #8b5cf6, #3b82f6);
+                background: linear-gradient(to right, #8b5cf6, #3b82f6);
                 border-radius: 8px;
                 overflow: hidden;
                 transition: transform 0.3s ease;
